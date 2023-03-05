@@ -15,13 +15,15 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text  col-sm-2">سريال</span>
-                    <input type="text" class="form-control me-3 dvice_sn" id="to_it_dvice_sn" placeholder="سريال" readonly>
+                    <input type="text" class="form-control me-3 dvice_sn" id="to_it_dvice_sn" placeholder="سريال"
+                        readonly>
                     <span class="input-group-text  col-sm-2">ورد بواسطه</span>
                     <input type="text" class="form-control" id="to_it_by" placeholder="ورد بواسطه">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text  col-sm-2">بتاريخ</span>
-                    <input type="date" class="form-control me-3" id="to_it_date" value="<?php echo date('Y-m-d')?>" placeholder="بتاريخ">
+                    <input type="date" class="form-control me-3" id="to_it_date" value="<?php echo date('Y-m-d') ?>"
+                        placeholder="بتاريخ">
                     <span class="input-group-text  col-sm-2">العطل</span>
                     <input type="text" class="form-control" id="damage" placeholder="العطل Name">
                 </div>

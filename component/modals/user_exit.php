@@ -5,12 +5,12 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">تسجيل الخروج</h1>
       </div>
       <div class="modal-body">
-       هل تريد تسجيل الخروج ؟
+        هل تريد تسجيل الخروج ؟
       </div>
       <div class="modal-footer">
-                <button type="button" class="btn btn-teal" data-bs-dismiss="modal">لا</button>
-                  <a class="btn btn-danger" href="../api/log/logout.php">نعم</a>
-            </div>
+        <button type="button" class="btn btn-teal" data-bs-dismiss="modal">لا</button>
+        <a class="btn btn-danger" href="../api/log/logout.php">نعم</a>
+      </div>
     </div>
   </div>
 </div>

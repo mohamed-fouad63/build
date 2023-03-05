@@ -1,11 +1,12 @@
 <?php
 session_start();
+// $db = $_SESSION['db'];
 $db = $_SESSION['db'];
 include '../conn/conn.php';
 $office_name = $_GET['office_name'];
-$query ="SELECT * FROM dvice WHERE office_name = '$office_name'
+$query = "SELECT * FROM dvice WHERE office_name = '$office_name'
 ORDER BY FIELD(id,'pc', 'monitor','printer','pos','postal','network') ASC";
-$result=mysqli_query($conn,$query ) ;
+$result = mysqli_query($conn, $query);
 // while($row1=mysqli_fetch_assoc($result))
 // {
 //     echo $row1["code_inventory"] ;
@@ -175,45 +176,44 @@ $result=mysqli_query($conn,$query ) ;
             </thead>
             <tbody>
                 <?php
-                    while($row1=mysqli_fetch_assoc($result))
-                    {
-                        if($row1["note"] == 'بقطاع الدعم الفنى بالقاهره'){
-                            $row1["note"] = 'بقطاع الدعم الفنى';
-                        }
-                        if($row1["dvice_name"] == 'BARCODE SCANNER HONEYWELL XENON 1900'){
-                            $row1["dvice_name"] = 'BARCODE SCANNER HONEYWELL';
-                        }
-                        if($row1["dvice_name"] == 'BARCODE SCANNER DATALOGIC QW2120'){
-                            $row1["dvice_name"] = 'BARCODE SCANNER DATALOGIC ';
-                        }
-                        ?>
-                <tr>
-                    <td>
-                        <?php echo $row1["code_inventory"] ; ?>
-                    </td>
-                    <td class="text_left" colspan="4">
-                        <?php echo "<span style='float:right;padding-right: 15px;'>".$row1["dvice_type"]."</span>"."  "."<span style='float:left;padding-left: 15px;'>".$row1["dvice_name"]."</span>"; ?>
-                    </td>
-                    <td class="text_left">
-                        <?php echo $row1["sn"] ; ?>
-                    </td>
-                    <td>
-                        <?php echo $row1["note"] ; ?>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <?php }
+                while ($row1 = mysqli_fetch_assoc($result)) {
+                    if ($row1["note"] == 'بقطاع الدعم الفنى بالقاهره') {
+                        $row1["note"] = 'بقطاع الدعم الفنى';
+                    }
+                    if ($row1["dvice_name"] == 'BARCODE SCANNER HONEYWELL XENON 1900') {
+                        $row1["dvice_name"] = 'BARCODE SCANNER HONEYWELL';
+                    }
+                    if ($row1["dvice_name"] == 'BARCODE SCANNER DATALOGIC QW2120') {
+                        $row1["dvice_name"] = 'BARCODE SCANNER DATALOGIC ';
+                    }
                     ?>
+                    <tr>
+                        <td>
+                            <?php echo $row1["code_inventory"]; ?>
+                        </td>
+                        <td class="text_left" colspan="4">
+                            <?php echo "<span style='float:right;padding-right: 15px;'>" . $row1["dvice_type"] . "</span>" . "  " . "<span style='float:left;padding-left: 15px;'>" . $row1["dvice_name"] . "</span>"; ?>
+                        </td>
+                        <td class="text_left">
+                            <?php echo $row1["sn"]; ?>
+                        </td>
+                        <td>
+                            <?php echo $row1["note"]; ?>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                <?php }
+                ?>
             </tbody>
             <tfoot>
                 <tr></tr>

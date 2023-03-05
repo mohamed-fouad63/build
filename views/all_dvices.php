@@ -34,6 +34,11 @@ session_login_auth('all_dvices');
             text-align: center;
         }
 
+        table tbody tr td:nth-of-type(6),
+        tbody tr td:nth-of-type(7) {
+            text-align: end;
+        }
+
         .filte_div {
             width: 30rem;
         }
@@ -53,10 +58,10 @@ session_login_auth('all_dvices');
 
 <body>
     <div class="navbar-collapsed pcoded-navbar">
-        <?php include '..\layout\aside\nav.php';?>
+        <?php include '..\layout\aside\nav.php'; ?>
     </div>
     <header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
-        <?php include '..\layout\header\m-hader.html';?>
+        <?php include '..\layout\header\m-hader.html'; ?>
         <ul class="navbar-nav ">
             <li>
                 <div class="d-flex filte_div" role="search"></div>
@@ -74,7 +79,7 @@ session_login_auth('all_dvices');
         </ul>
         <ul class="navbar-nav ml-auto">
             <li>
-                <?php include '..\layout\header\user.php';?>
+                <?php include '..\layout\header\user.php'; ?>
             </li>
         </ul>
     </header>
@@ -84,29 +89,33 @@ session_login_auth('all_dvices');
                 <table id="example" class="table table-hover" style="width:100%">
                     <thead id="tablehead">
                         <tr id="filterboxrow">
-                            <th> #</th>
-                            <th> المكتب</th>
+                            <th> م</th>
+                            <th>مبنى</th>
+                            <th>الدور</th>
+                            <th>المكتب</th>
+                            <th>نوع الجهاز</th>
                             <th>موديل الجهاز</th>
                             <th>السريال</th>
                             <th>IP</th>
-                            <th>موقفه</th>
                         </tr>
-                        <tr>
-                            <th> #</th>
-                            <th> المكتب</th>
+                        <tr id="controlPanel">
+                            <th>م</th>
+                            <th>مبنى</th>
+                            <th>الدور</th>
+                            <th>المكتب</th>
+                            <th>نوع الجهاز</th>
                             <th>موديل الجهاز</th>
                             <th>السريال</th>
                             <th>IP</th>
-                            <th>موقفه</th>
                         </tr>
                     </thead>
                 </table>
             </div>
         </div>
-                <?php include '../component/modals/user_exit.php'?>
+        <?php include '../component/modals/user_exit.php' ?>
         <!-- end user exit modal -->
         <!-- start user password  modal -->
-        <?php include '../component/modals/user_password_change.php'?>
+        <?php include '../component/modals/user_password_change.php' ?>
         <!-- end user password modal -->
     </div>
     <script src="../assets/js/plugins/jquery.min.js"></script>

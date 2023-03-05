@@ -3,7 +3,7 @@ $("#EditModalPC .btn-success").click(function () {
     pc_sn: $("#edit_dvice_sn").val(),
     pc_ip: $("#dvice_ip").val(),
     pc_domian_name: $("#pc_domian_name").val(),
-    dvice_num: divce_num,
+    dvice_num: dvice_num,
   };
   console.log(formData);
   $.ajax({
@@ -16,7 +16,7 @@ $("#EditModalPC .btn-success").click(function () {
         datatable_ajax_reload();
         $("#EditModalPC").modal("hide");
       } else {
-        alert("لم يتم التعديل");
+        alert(result);
       }
     },
   });

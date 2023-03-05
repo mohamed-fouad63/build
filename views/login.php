@@ -1,17 +1,18 @@
 <?php
 session_start();
-if($_SESSION){
-  header('location:/it2/views/');
+if ($_SESSION) {
+  header('location:/build/views/');
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>تسجيل الدخول لقاعده بياتات الدعم الفنى</title>
-  <link rel="icon" href="../../../it2/assets/images/it1.svg" type="image/x-icon" />
+  <link rel="icon" href="../../../build/assets/images/it1.svg" type="image/x-icon" />
   <style>
     body,
     html {
@@ -97,7 +98,7 @@ if($_SESSION){
       outline: none !important;
       border: 1px solid #2c3e50;
       box-shadow: 0 0 5px #719ECE;
-      direction:rtl
+      direction: rtl
     }
 
     button {
@@ -112,20 +113,12 @@ if($_SESSION){
     }
   </style>
 </head>
+
 <body>
   <div style="height:100%;">
     <div class="splitdiv" id="leftdiv">
       <form method="post">
         <div id="leftdivcard">
-          <select class="custom-select" name="db" id="db" style="">
-            <option>اختر المنطقه</option>
-            <?php
-              $fgc = file_get_contents("http://localhost/it2/jsons/area_name.json");
-              $jc = json_decode($fgc, true);
-              foreach ($jc as $key => $value) {?>
-            <option value="<?php echo $key ?>"><?php echo $value; ?></option>
-            <?php } ?>
-          </select>
           <input type="text" name="user_id" placeholder="رقم الملف" required>
           <input type="password" name="user_pass" placeholder="كلمه المرور" required>
           <div style="text-align:center">
@@ -136,11 +129,11 @@ if($_SESSION){
     </div>
     <div class="splitdiv" id="rightdiv">
       <div id="rightdivcard">
-        <h1 style="padding-top:20px;text-align:center;color:white">اداره الاجهزه و الاعمال الاداريه</h1>
+        <h1 style="padding-top:20px;text-align:center;color:white">اداره اجهزه مبانى البريد المصرى </h1>
         <h4 id="result"></h4>
-        <p style="color:white;text-align:center">احصائيات | اضافه | تعديل | تكهين | نقل | خطط شهريه</p>
+        <p style="color:white;text-align:center">احصائيات | اضافه | تعديل</p>
         <div style="text-align:center">
-          <img src="../../../it2/assets/images/it1.svg" style="height:50vh" class="logo">
+          <img src="../../build/assets/images/build.svg" style="height:50vh" class="logo">
         </div>
       </div>
     </div>
@@ -149,13 +142,14 @@ if($_SESSION){
   <script>
     $("form").submit(function (event) {
       event.preventDefault();
+      // console.log($('form').serialize());
       $.ajax({
         type: "POST",
         url: "../api/log/login.php",
         data: $('form').serialize(),
         success: function (result) {
           if (result == 'done') {
-            window.location.replace('/it2/views');
+            window.location.replace('/build/views');
           } else {
             alert(result)
           }
@@ -163,28 +157,6 @@ if($_SESSION){
       })
     });
   </script>
-         <script>
-            function readCookie(name) {
-                var nameEQ = name + "=";
-                var ca = document.cookie.split(';');
-                for (var i = 0; i < ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0) == ' ') { c = c.trim() };
-                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-                }
-                return null;
-            }
-
-            var selectbox = document.getElementById("db");
-            window.onload = function () { selectbox.selectedIndex = readCookie("db"); }
-            selectbox.onchange = function (){
-                  var d = new Date();
-                    d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-                    var expires = "expires="+d.toUTCString();
-                document.cookie= 'db = ' + this.selectedIndex + ';' + expires +'; path=/;';
-           }
-        </script>
 </body>
 
 </html>
-         

@@ -1,7 +1,7 @@
 var table = $("#example").DataTable({
   bProcessing: true,
   ajax: {
-    url: "/it2/api/dvice/all_dvice.php",
+    url: "/build/api/dvice/all_dvice.php",
     method: "post",
     data: function (d) {
       d.auth = "";
@@ -9,12 +9,15 @@ var table = $("#example").DataTable({
     dataSrc: "",
   },
   deferRender: true,
-  columnDefs: [
-    { width: "5%", targets: 0 },
-    { width: "20%", targets: 2 },
-    { width: "5%", targets: 4 },
-    { width: "20%", targets: 5 },
-  ],
+  // columnDefs: [
+  //   { width: "5%", targets: 0 },
+  //   { width: "15%", targets: 1 },
+  //   { width: "15%", targets: 2 },
+  //   { width: "30%", targets: 3 },
+  //   { width: "20%", targets: 4 },
+  //   { width: "10%", targets: 5 },
+  //   { width: "10%", targets: 6 },
+  // ],
   columns: [
     {
       data: "",
@@ -22,16 +25,13 @@ var table = $("#example").DataTable({
         return meta.row + 1;
       },
     },
+    { data: "building_name" },
+    { data: "floor_name" },
     { data: "office_name" },
+    { data: "dvice_type" },
     { data: "dvice_name" },
     { data: "sn" },
     { data: "ip" },
-    {
-      data: "",
-      render: function (data, type, row) {
-        return `${row.note}${row.note_move_to}`;
-      },
-    },
   ],
   // select: {style: 'multi'},
   paging: false,

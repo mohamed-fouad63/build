@@ -1,14 +1,14 @@
 <?php
 include("../middleware/middleware_session.php");
-session_login_auth('post');
+session_login_auth('dvice_office');
 ?>
 <!DOCTYPE html>
 <html lang="ar">
-    
+
 <head>
     <meta charset=utf-8>
     <title>اجهزه مكتب </title>
-      <link rel="icon" href="../../../it2/assets/images/it1.svg" type="image/x-icon" />
+    <link rel="icon" href="../../../it2/assets/images/it1.svg" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/css/plugins/bootstrap5/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="../assets/fonts/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/plugins/easy-autocomplete.css">
@@ -43,60 +43,63 @@ session_login_auth('post');
 
         /* */
         .filte_div {
-            width: 30rem;
+            width: 40rem;
         }
 
         thead tr {
             background-color: #8fbc8f33;
         }
 
-        tbody tr td:last-of-type button{
-            float:left
+        tbody tr td:last-of-type button {
+            float: left
         }
+
         .dataTables_info {
             display: inline-block
         }
+
         .easy-autocomplete {
-            width:100%
+            width: 100%
         }
     </style>
 </head>
 
 <body>
     <div class="pcoded-navbar navbar-collapsed">
-        <?php include '..\layout\aside\nav.php';?>
+        <?php include '..\layout\aside\nav.php'; ?>
     </div>
     <header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
-        <?php include '..\layout\header\m-hader.html';?>
+        <?php include '..\layout\header\m-hader.html'; ?>
         <ul class="navbar-nav ">
             <li>
-                <?php include '..\component\search.html';?>
+                <?php include '..\component\search.html'; ?>
             </li>
         </ul>
         <ul class="navbar-nav ">
             <li>
                 <div class="btn-group bt_div">
-                    <?php if($_SESSION['add_dvice'] == 1){ ?>
-                    <button class="btn disabled" tabindex="0" aria-controls="example" data-bs-toggle="modal" data-placement="right" title="اضافه  الجهاز" id="add_dvice" data-bs-target="#Add_dvice_Modal">
-                        <i class="btn btn-primary bi bi-plus"></i>
-                    </button>
+                    <?php if ($_SESSION['add_dvice'] == 1) { ?>
+                        <button class="btn disabled" tabindex="0" aria-controls="example" data-bs-toggle="modal"
+                            data-placement="right" title="اضافه  الجهاز" id="add_dvice" data-bs-target="#Add_dvice_Modal">
+                            <i class="btn btn-primary bi bi-plus"></i>
+                        </button>
                     <?php } ?>
-                    <a class="btn disabled" id="print_dvices" target="blank" tabindex="0"
-                        aria-controls="example" data-placement="right" title="طباعه جرد المكتب">
+                    <a class="btn disabled" id="print_dvices" target="blank" tabindex="0" aria-controls="example"
+                        data-placement="right" title="طباعه جرد المكتب">
                         <i class="btn btn-warning bi bi-printer"></i>
                     </a>
                 </div>
             </li>
-        </ul> 
+        </ul>
         <ul class="navbar-nav ml-auto">
             <li>
-                <?php include '..\layout\header\user.php';?>
+                <?php include '..\layout\header\user.php'; ?>
             </li>
         </ul>
     </header>
     <div class="pcoded-main-container">
         <div class="pcoded-content">
-            <div class="d-flex mt-5">
+            <div class="d-flex mt-5" style="margin:auto;width:90%">
                 <div class="flex-grow-1">
                     <!-- start office deatails -->
                     <fieldset class="mb-3" id="details_offfice_field" style="/* display:none */">
@@ -107,13 +110,8 @@ session_login_auth('post');
                                     <th colspan='7' class='fs-5'></th>
                                 </tr>
                                 <tr>
-                                    <th>الكود المالى</th>
-                                    <th>الكود البريدى</th>
-                                    <th> كود بوستال</th>
-                                    <th>مجموعه بريد</th>
-                                    <th> منظومه الطوابع</th>
-                                    <th> اسم الدومين</th>
-                                    <th>رقم التليفون</th>
+                                    <th>الدور</th>
+                                    <th>المبنى</th>
                                 </tr>
                             </thead>
                         </table>
@@ -131,8 +129,7 @@ session_login_auth('post');
                                     <th>نوعه</th>
                                     <th>سريال</th>
                                     <th>IP</th>
-                                    <th>Domain Name</th>
-                                    <th>موقفه</th>
+                                    <th>PC Name</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -150,7 +147,6 @@ session_login_auth('post');
                                 <tr>
                                     <th>نوعه</th>
                                     <th>سريال</th>
-                                    <th>موقفه</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -169,32 +165,12 @@ session_login_auth('post');
                                     <th>نوعه</th>
                                     <th>سريال</th>
                                     <th>IP</th>
-                                    <th>موقفه</th>
                                     <th></th>
                                 </tr>
                             </thead>
                         </table>
                     </fieldset>
                     <!-- end printer -->
-                    <!-- start pos -->
-                    <fieldset class="mb-3" id="dvice_office_pos_field" style="/* display:none */">
-                        <legend>
-                            <i class="bi bi-paypal me-2"></i>
-                            <span class="count me-2" id="pos_office_count"></span>ماكينات نقاط بيع
-                        </legend>
-                        <table id="dvice_office_pos" class="table align-middle table-hover" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>نوعه</th>
-                                    <th>سريال</th>
-                                    <th>IP</th>
-                                    <th>موقفه</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </fieldset>
-                    <!-- end pos -->
                     <!-- strat network -->
                     <fieldset class="mb-3" id="dvice_office_network_field" style="/* display:none */">
                         <legend>
@@ -207,7 +183,6 @@ session_login_auth('post');
                                     <th>نوعه</th>
                                     <th>سريال</th>
                                     <th>IP</th>
-                                    <th>موقفه</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -217,7 +192,7 @@ session_login_auth('post');
                     <!-- start postal -->
                     <fieldset class="mb-3" id="dvice_office_postal_field" style="/* display:none */">
                         <legend>
-                        <i class="bi bi-envelope-paper-fill"></i>
+                            <i class="bi bi-envelope-paper-fill"></i>
                             <span class="count me-2" id="postal_office_count"></span>اجهزه بوستال
                         </legend>
                         <table id="dvice_office_postal" class="table align-middle table-hover" style="width:100%">
@@ -225,7 +200,6 @@ session_login_auth('post');
                                 <tr>
                                     <th>نوعه</th>
                                     <th>سريال</th>
-                                    <th>موقفه</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -235,7 +209,7 @@ session_login_auth('post');
                     <!-- start other -->
                     <fieldset class="mb-3" id="dvice_office_other_field" style="/* display:none */">
                         <legend>
-                        <i class="bi bi-question-square-fill"></i>
+                            <i class="bi bi-question-square-fill"></i>
                             <span class="count me-2" id="other_office_count"></span>اخرى
                         </legend>
                         <table id="dvice_office_other" class="table align-middle table-hover" style="width:100%">
@@ -243,7 +217,6 @@ session_login_auth('post');
                                 <tr>
                                     <th>نوعه</th>
                                     <th>سريال</th>
-                                    <th>موقفه</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -259,19 +232,14 @@ session_login_auth('post');
     </div>
     <div>
         <?php
-        if($_SESSION['edit'] == 1){
-         include '../component/modals/dvices_office/edit_modal_pc.html';
+        if ($_SESSION['edit'] == 1) {
+            include '../component/modals/dvices_office/edit_modal_pc.php';
+            include '../component/modals/dvices_office/delete_modal_pc.php';
         }
-        if($_SESSION['to_it'] == 1){
-        include '../component/modals/dvices_office/to_it_modal.php';
+        if ($_SESSION['add_dvice'] == 1) {
+            include '../component/modals/dvices_office/add_dvice_modal.php';
         }
-        if($_SESSION['move'] == 1){
-        include '../component/modals/dvices_office/move_to_modal.php';
-        }
-        if($_SESSION['add_dvice'] == 1){
-        include '../component/modals/dvices_office/add_dvice_modal.php';
-        }
-         include '../component/modals/user_exit.php';
+        include '../component/modals/user_exit.php';
         include '../component/modals/user_password_change.php';
         ?>
     </div>
@@ -288,22 +256,18 @@ session_login_auth('post');
     <script src="../js/log/change_password.js"></script>
     <script>
         var Settings = {
-            dropdown_dvieces_office_url: `<?php include '../component/dropdown_dvieces_office.php'?>`
+            dropdown_dvieces_office_url: `<?php include '../component/dropdown_dvieces_office.php' ?>`
         }
     </script>
     <script src="../data_tables/dvices_office.js"></script>
-    <?php if($_SESSION['edit'] == 1){ ?>
-    <script src="../js/dvices_office/edit_dvice.js"></script>
+    <?php if ($_SESSION['edit'] == 1) { ?>
+        <script src="../js/dvices_office/edit_dvice.js"></script>
+        <script src="../js/dvices_office/delete_dvice.js"></script>
     <?php }
-     if($_SESSION['to_it'] == 1){ ?>
-    <script src="../js/dvices_office/to_it.js"></script>
-    <?php }
-     if($_SESSION['add_dvice'] == 1){ ?>
-    <script src="../js/global/dismiss_modal_check.js"></script>
-    <script src="../js/dvices_office/add_dvice.js"></script>
-    <?php }
-    if($_SESSION['move'] == 1){ ?>
-    <script src="../js/dvices_office/move_to.js"></script>
+
+    if ($_SESSION['add_dvice'] == 1) { ?>
+        <script src="../js/global/dismiss_modal_check.js"></script>
+        <script src="../js/dvices_office/add_dvice.js"></script>
     <?php } ?>
 </body>
 

@@ -625,9 +625,16 @@ div.dt-button-info > div {
 }
 .card {
   box-shadow: 0 2px 1px rgb(0 0 0 / 5%);
-  margin-bottom: 30px;
-  transition: box-shadow 0.2s ease-in-out;
   border-top: 3px solid #8cddcd;
+  height: 100%;
+}
+
+.card-header {
+  background-color: transparent;
+}
+.card-body {
+  border-top: 3px solid #8cddcd;
+  border-bottom: 3px solid #8cddcd;
 }
 .widget-primary-card.flat-card .row-table:first-child,
 .flat-card.widget-purple-card .row-table:first-child {
@@ -661,7 +668,7 @@ a:hover {
   text-decoration: none;
 }
 .dropdown-menu {
-  padding: 10px 0;
+  padding: 5px 5px;
   font-size: 14px;
   text-align: start;
 }

@@ -13,9 +13,10 @@ $("#Add_USER_Modal .btn-success").click(function () {
       result = result.replace(/^\s+|\s+$/gm, "");
       console.log(result);
       if (result == "done") {
+        $("#container_buildings").html("");
         load_users_tables();
       } else {
-        alert("تعذر اضافه المستخدم ");
+        alert(result);
       }
     },
   });

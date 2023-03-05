@@ -25,7 +25,8 @@
         </div>
         <div class="col-md-3">
             <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=monitor" target="_blank" class="text-decoration-none fs-1">
+                <a href="../../it2/api/dvice/count_dvices.php?id=monitor" target="_blank"
+                    class="text-decoration-none fs-1">
                     <div class="card-header monitor">
                         <span class="fs-1" id="monitors_count"></span>
                         <i class="bi bi-display-fill me-2 fs-1"></i>
@@ -42,7 +43,8 @@
         </div>
         <div class="col-md-3">
             <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=printer" target="_blank" class="text-decoration-none fs-1">
+                <a href="../../it2/api/dvice/count_dvices.php?id=printer" target="_blank"
+                    class="text-decoration-none fs-1">
                     <div class="card-header printer">
                         <span class="fs-1" id="printers_count"></span>
                         <i class="bi bi-printer-fill me-2 fs-1"></i>
@@ -59,24 +61,8 @@
         </div>
         <div class="col-md-3">
             <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=pos" target="_blank" class="text-decoration-none fs-1">
-                    <div class="card-header pos">
-                        <span class="fs-1" id="pos_count"></span>
-                        <i class="bi bi-credit-card-2-back me-2 fs-1"></i>
-                        <span class="fs-2">نقاط بيع</span>
-                    </div>
-                </a>
-                <div class="pos_list">
-                    <div class="">
-                        <table class="table table-hover" id="pos_table">
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=scanner" target="_blank" class="text-decoration-none fs-1">
+                <a href="../../it2/api/dvice/count_dvices.php?id=scanner" target="_blank"
+                    class="text-decoration-none fs-1">
                     <div class="card-header scanner">
                         <span class="fs-1" id="barcode_scanner_count"></span>
                         <i class="bi bi-upc-scan me-2 fs-1"></i>
@@ -86,59 +72,6 @@
                 <div class="scanner_list">
                     <div class="">
                         <table class="table table-hover" id="barcode_scanner_table">
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=parcode_printer" target="_blank" class="text-decoration-none fs-1">
-                    <div class="card-header parcode_printer">
-                        <span class="fs-1" id="barcode_printer_count"></span>
-                        <i class="bi-printer-fill fs-1"></i>
-                        <i class="bi-upc" style="position: relative;right: -52px;top: 10px;color:#0093b1;"></i>
-                        <span class="fs-2">طابعات باركود</span>
-                    </div>
-                </a>
-                <div class="parcode_printer_list">
-                    <div class="">
-                        <table class="table table-hover" id="barcode_printer_table">
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=weighter" target="_blank" class="text-decoration-none fs-1">
-                    <div class="card-header weighter">
-                        <span class="fs-1" id="scale_count"></span>
-                        <i class="bi bi-badge-8k me-2 fs-1"></i>
-                        <span class="fs-2">ميزان اليكترونى</span>
-                    </div>
-                </a>
-                <div class="weighter_list">
-                    <div class="">
-                        <table class="table table-hover" id="scale_table">
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=displaying" target="_blank" class="text-decoration-none fs-1">
-                    <div class="card-header displaying">
-                        <span class="fs-1" id="custom_display_table_count"></span>
-                        <i class="bi bi-cast me-2 fs-1"></i>
-                        <span class="fs-2">شاشه عميل</span>
-                    </div>
-                </a>
-                <div class="displaying_list">
-                    <div class="">
-                        <table class="table table-hover" id="custom_display_table">
-                            <tbody>
                         </table>
                     </div>
                 </div>

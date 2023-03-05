@@ -5,14 +5,16 @@
                 <h5 class="modal-title" id="EditModalLabel">تغيير كلمه المرور</h5>
             </div>
             <div class="modal-body">
-            <div class="input-group mb-3">
+                <div class="input-group mb-3">
                     <input type="password" class="form-control" id="old_pass" placeholder="كلمه المرور القديمه">
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" id="new_pass" placeholder="كلمه المرور الجديده" autocomplete="off">
+                    <input type="password" class="form-control" id="new_pass" placeholder="كلمه المرور الجديده"
+                        autocomplete="off">
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" id="re_new_pass" placeholder="تأكيد كلمه المرور الجديده" autocomplete="off">
+                    <input type="password" class="form-control" id="re_new_pass" placeholder="تأكيد كلمه المرور الجديده"
+                        autocomplete="off">
                 </div>
             </div>
             <div class="modal-footer">

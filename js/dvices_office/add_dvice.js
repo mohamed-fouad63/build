@@ -65,9 +65,15 @@ $("#select_dvice_name").change(function () {
 $("#add_dvice_btn").click(function () {
   var formData = {
     office_name: office_name,
+    building_name: building_name,
+    building_id: building_id,
+    floor_name: floor_name,
+    floor_id: floor_id,
+    office_id: office_id,
     dvice_name: $("#select_dvice_name").val(),
     dvice_sn: $("#divce_sn_add").val(),
   };
+  console.log(formData);
   $.ajax({
     type: "POST",
     url: "../api/dvice/add_dvice_office.php",
@@ -84,7 +90,8 @@ $("#add_dvice_btn").click(function () {
         $("#add_dvice_btn").addClass("disabled");
         datatable_ajax_reload();
       } else {
-        alert("تعذر اضافه الجهاز ");
+        alert(result);
+        $("#Add_dvice_Modal").modal("show");
       }
     },
   });

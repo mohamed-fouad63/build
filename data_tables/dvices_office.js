@@ -1,30 +1,22 @@
 /* start data table office details */
 var details_offfice = $("#details_offfice").DataTable({
   ajax: {
-    url: "/it2/api/office/details_offfice.php",
+    url: "../api/office/details_offfice.php",
     method: "post",
     data: {
       input_search: function () {
-        var input_search = $("#input_search").val();
+        var input_search = $("#input_search").data("office_id");
         return input_search;
       },
     },
     dataSrc: "",
   },
   deferRender: true,
-  columns: [
-    { data: "money_code" },
-    { data: "post_code" },
-    { data: "postal_code" },
-    { data: "post_group" },
-    { data: "Stamps" },
-    { data: "domain_name" },
-    { data: "tel" },
-  ],
+  columns: [{ data: "floor_name" }, { data: "building_name" }],
   dom: "rt",
   paging: false,
   language: {
-    zeroRecords: "ابحث باسم المكتب او الكود المالى او البريدى او كود بوستال",
+    zeroRecords: "ابحث باسم المكتب او بجزء من الاسم",
     infoEmpty: "0",
     info: "_TOTAL_",
   },
@@ -32,7 +24,12 @@ var details_offfice = $("#details_offfice").DataTable({
     $("#details_offfice thead tr:first-of-type th").text(
       details_offfice.row().data().office_name
     );
-    return (office_name = details_offfice.row().data().office_name);
+    office_name = details_offfice.row().data().office_name;
+    building_name = details_offfice.row().data().building_name;
+    floor_name = details_offfice.row().data().floor_name;
+    building_id = details_offfice.row().data().building_id;
+    floor_id = details_offfice.row().data().floor_id;
+    office_id = details_offfice.row().data().id;
   },
   initComplete: function () {},
 });
@@ -41,11 +38,11 @@ var details_offfice = $("#details_offfice").DataTable({
 /* start data table pc  */
 var dvice_office_pc = $("#dvice_office_pc").DataTable({
   ajax: {
-    url: "/it2/api/dvice/dvice_office_pc.php",
+    url: "../api/dvice/dvice_office_pc.php",
     method: "post",
     data: {
       input_search: function () {
-        var input_search = $("#input_search").val();
+        var input_search = $("#input_search").data("office_id");
         return input_search;
       },
     },
@@ -58,21 +55,11 @@ var dvice_office_pc = $("#dvice_office_pc").DataTable({
     { data: "ip" },
     { data: "pc_doman_name" },
     {
-      data: "note",
-      render: function (data, type, row) {
-        return row.note + "" + row.note_move_to;
-      },
-    },
-    {
       data: "",
       render: function (data, type, row) {
-        if (row.note != "" || row.note_move_to != "") {
-          return "";
-        } else {
-          return `
-                    ${Settings.dropdown_dvieces_office_url}
+        return `
+              ${Settings.dropdown_dvieces_office_url}
                 `;
-        }
       },
     },
   ],
@@ -107,7 +94,7 @@ var dvice_office_pc = $("#dvice_office_pc").DataTable({
       $(".dvice_num").val(data_pc.num);
       $(".dvice_id").val(data_pc.id);
       $(".dvice_type").val(data_pc.dvice_type);
-      return (divce_num = data_pc.num);
+      return (dvice_num = data_pc.num);
     });
   },
 });
@@ -116,11 +103,11 @@ var dvice_office_pc = $("#dvice_office_pc").DataTable({
 /* start data table monitor  */
 var dvice_office_monitor = $("#dvice_office_monitor").DataTable({
   ajax: {
-    url: "/it2/api/dvice/dvice_office_monitor.php",
+    url: "../api/dvice/dvice_office_monitor.php",
     method: "post",
     data: {
       input_search: function () {
-        var input_search = $("#input_search").val();
+        var input_search = $("#input_search").data("office_id");
         return input_search;
       },
     },
@@ -131,21 +118,11 @@ var dvice_office_monitor = $("#dvice_office_monitor").DataTable({
     { data: "dvice_name" },
     { data: "sn" },
     {
-      data: "note",
-      render: function (data, type, row) {
-        return row.note + "" + row.note_move_to;
-      },
-    },
-    {
       data: "",
       render: function (data, type, row) {
-        if (row.note != "" || row.note_move_to != "") {
-          return "";
-        } else {
-          return `
-                    ${Settings.dropdown_dvieces_office_url}
+        return `
+              ${Settings.dropdown_dvieces_office_url}
                 `;
-        }
       },
     },
   ],
@@ -171,7 +148,7 @@ var dvice_office_monitor = $("#dvice_office_monitor").DataTable({
       $(".dvice_sn").val(data_monitor.sn);
       $(".dvice_id").val(data_monitor.id);
       $(".dvice_type").val(data_monitor.dvice_type);
-      return (divce_num = data_monitor.num);
+      return (dvice_num = data_monitor.num);
     });
   },
 });
@@ -180,11 +157,11 @@ var dvice_office_monitor = $("#dvice_office_monitor").DataTable({
 /* start data table printer  */
 var dvice_office_printer = $("#dvice_office_printer").DataTable({
   ajax: {
-    url: "/it2/api/dvice/dvice_office_printer.php",
+    url: "../api/dvice/dvice_office_printer.php",
     method: "post",
     data: {
       input_search: function () {
-        var input_search = $("#input_search").val();
+        var input_search = $("#input_search").data("office_id");
         return input_search;
       },
     },
@@ -196,21 +173,11 @@ var dvice_office_printer = $("#dvice_office_printer").DataTable({
     { data: "sn" },
     { data: "ip" },
     {
-      data: "note",
-      render: function (data, type, row) {
-        return row.note + "" + row.note_move_to;
-      },
-    },
-    {
       data: "",
       render: function (data, type, row) {
-        if (row.note != "" || row.note_move_to != "") {
-          return "";
-        } else {
-          return `
-                    ${Settings.dropdown_dvieces_office_url}
+        return `
+              ${Settings.dropdown_dvieces_office_url}
                 `;
-        }
       },
     },
   ],
@@ -238,87 +205,19 @@ var dvice_office_printer = $("#dvice_office_printer").DataTable({
       $(".dvice_ip").val(data_printer.ip);
       $(".dvice_id").val(data_printer.id);
       $(".dvice_type").val(data_printer.dvice_type);
-      return (divce_num = data_printer.num);
+      return (dvice_num = data_printer.num);
     });
   },
 });
 /* end data table printer  */
-
-/* start data table pos  */
-var dvice_office_pos = $("#dvice_office_pos").DataTable({
-  ajax: {
-    url: "/it2/api/dvice/dvice_office_pos.php",
-    method: "post",
-    data: {
-      input_search: function () {
-        var input_search = $("#input_search").val();
-        return input_search;
-      },
-    },
-    dataSrc: "",
-  },
-  deferRender: true,
-  columns: [
-    { data: "dvice_name" },
-    { data: "sn" },
-    { data: "ip" },
-    {
-      data: "note",
-      render: function (data, type, row) {
-        return row.note + "" + row.note_move_to;
-      },
-    },
-    {
-      data: "",
-      render: function (data, type, row) {
-        if (row.note != "" || row.note_move_to != "") {
-          return "";
-        } else {
-          return `
-                    ${Settings.dropdown_dvieces_office_url}
-                `;
-        }
-      },
-    },
-  ],
-  dom: "irt",
-  paging: false,
-  language: {
-    zeroRecords: "لا يوجد نقاط بيع مدرجه",
-    infoEmpty: "0",
-    info: "_TOTAL_",
-  },
-  rowCallback: function (row, data) {},
-  initComplete: function () {
-    $("#pos_office_count").append($("#dvice_office_pos_info"));
-    $("#dvice_office_pos tbody").on("click", ".dropdown-item", function () {
-      $("#dvice_ip_label").css("visibility", "visible");
-      $("#dvice_ip").css("visibility", "visible");
-      $("#ip_domain").css("display", "flex");
-      $("#pc_domian_name_label").css("visibility", "hidden");
-      $("#pc_domian_name").css("visibility", "hidden");
-      var data_pos = dvice_office_pos.row($(this).parents("tr")).data();
-      $(".office_name").val(data_pos.office_name);
-      office_name = data_pos.office_name;
-      $(".dvice_name").val(data_pos.dvice_name);
-      $(".dvice_sn").val(data_pos.sn);
-      $(".dvice_ip").val(data_pos.ip);
-      $(".dvice_id").val(data_pos.id);
-      $(".dvice_type").val(data_pos.dvice_type);
-      return (divce_num = data_pos.num);
-    });
-  },
-});
-/* end data table pos  */
-
 /* start data table network  */
 var dvice_office_network = $("#dvice_office_network").DataTable({
   ajax: {
-    url: "/it2/api/dvice/dvice_office_network.php",
+    url: "../api/dvice/dvice_office_network.php",
     method: "post",
     data: {
       input_search: function () {
-        var input_search = $("#input_search").val();
+        var input_search = $("#input_search").data("office_id");
         return input_search;
       },
     },
@@ -330,21 +229,11 @@ var dvice_office_network = $("#dvice_office_network").DataTable({
     { data: "sn" },
     { data: "ip" },
     {
-      data: "note",
-      render: function (data, type, row) {
-        return row.note + "" + row.note_move_to;
-      },
-    },
-    {
       data: "",
       render: function (data, type, row) {
-        if (row.note != "" || row.note_move_to != "") {
-          return "";
-        } else {
-          return `
-                    ${Settings.dropdown_dvieces_office_url}
+        return `
+              ${Settings.dropdown_dvieces_office_url}
                 `;
-        }
       },
     },
   ],
@@ -372,7 +261,7 @@ var dvice_office_network = $("#dvice_office_network").DataTable({
       $(".dvice_ip").val(data_network.ip);
       $(".dvice_id").val(data_network.id);
       $(".dvice_type").val(data_network.dvice_type);
-      return (divce_num = data_network.num);
+      return (dvice_num = data_network.num);
     });
   },
 });
@@ -381,11 +270,11 @@ var dvice_office_network = $("#dvice_office_network").DataTable({
 /* start data table postal  */
 var dvice_office_postal = $("#dvice_office_postal").DataTable({
   ajax: {
-    url: "/it2/api/dvice/dvice_office_postal.php",
+    url: "../api/dvice/dvice_office_postal.php",
     method: "post",
     data: {
       input_search: function () {
-        var input_search = $("#input_search").val();
+        var input_search = $("#input_search").data("office_id");
         return input_search;
       },
     },
@@ -396,21 +285,11 @@ var dvice_office_postal = $("#dvice_office_postal").DataTable({
     { data: "dvice_name" },
     { data: "sn" },
     {
-      data: "note",
-      render: function (data, type, row) {
-        return row.note + "" + row.note_move_to;
-      },
-    },
-    {
       data: "",
       render: function (data, type, row) {
-        if (row.note != "" || row.note_move_to != "") {
-          return "";
-        } else {
-          return `
-                    ${Settings.dropdown_dvieces_office_url}
+        return `
+              ${Settings.dropdown_dvieces_office_url}
                 `;
-        }
       },
     },
   ],
@@ -438,7 +317,7 @@ var dvice_office_postal = $("#dvice_office_postal").DataTable({
       $(".dvice_ip").val(data_postal.ip);
       $(".dvice_id").val(data_postal.id);
       $(".dvice_type").val(data_postal.dvice_type);
-      return (divce_num = data_postal.num);
+      return (dvice_num = data_postal.num);
     });
   },
 });
@@ -446,11 +325,11 @@ var dvice_office_postal = $("#dvice_office_postal").DataTable({
 /* start data table other  */
 var dvice_office_other = $("#dvice_office_other").DataTable({
   ajax: {
-    url: "/it2/api/dvice/dvice_office_other.php",
+    url: "../api/dvice/dvice_office_other.php",
     method: "post",
     data: {
       input_search: function () {
-        var input_search = $("#input_search").val();
+        var input_search = $("#input_search").data("office_id");
         return input_search;
       },
     },
@@ -461,21 +340,11 @@ var dvice_office_other = $("#dvice_office_other").DataTable({
     { data: "dvice_name" },
     { data: "sn" },
     {
-      data: "note",
-      render: function (data, type, row) {
-        return row.note + " " + row.note_move_to;
-      },
-    },
-    {
       data: "",
       render: function (data, type, row) {
-        if (row.note != "" || row.note_move_to != "") {
-          return "";
-        } else {
-          return `
-                    ${Settings.dropdown_dvieces_office_url}
+        return `
+              ${Settings.dropdown_dvieces_office_url}
                 `;
-        }
       },
     },
   ],
@@ -503,7 +372,7 @@ var dvice_office_other = $("#dvice_office_other").DataTable({
       $(".dvice_sn").val(data_other.sn);
       $(".dvice_id").val(data_other.id);
       $(".dvice_type").val(data_other.dvice_type);
-      return (divce_num = data_other.num);
+      return (dvice_num = data_other.num);
     });
   },
 });
@@ -528,13 +397,6 @@ function datatable_ajax_reload() {
     //   $("#dvice_office_printer_field").css("display", "none");
     // } else {
     //   $("#dvice_office_printer_field").css("display", "block");
-    // }
-  });
-  dvice_office_pos.ajax.reload(function () {
-    // if (!dvice_office_pos.data().count()) {
-    //   $("#dvice_office_pos_field").css("display", "none");
-    // } else {
-    //   $("#dvice_office_pos_field").css("display", "block");
     // }
   });
   dvice_office_network.ajax.reload(function () {

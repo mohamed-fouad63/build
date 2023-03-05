@@ -1,5 +1,0 @@
-ALTER TABLE `misin_it` CHANGE `status` `mission_status` INT(1) NOT NULL DEFAULT '0';
-ALTER TABLE `misin_it_online` add `mission_status` INT(1) NOT NULL DEFAULT '0';
-SELECT misin_date, COUNT(misin_date) FROM misin_it GROUP BY misin_date HAVING COUNT(misin_date) > 1;
-SELECT office_name, COUNT(misin_date) FROM misin_it GROUP BY misin_date HAVING COUNT(misin_date) > 1;
-SELECT misin_date, COUNT(misin_date) FROM misin_it GROUP BY misin_date HAVING COUNT(misin_date) > 0;

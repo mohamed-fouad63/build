@@ -1,7 +1,7 @@
 var table = $("#pc_table").DataTable({
   bProcessing: true,
   ajax: {
-    url: "/it2/api/dvice/count_pc.php",
+    url: "/build/api/dvice/count_pc.php",
     method: "post",
     data: function (d) {
       d.dvice_id = "pc";
@@ -49,7 +49,7 @@ var table = $("#pc_table").DataTable({
 var monitor_table = $("#monitor_table").DataTable({
   bProcessing: true,
   ajax: {
-    url: "/it2/api/dvice/count_pc.php",
+    url: "/build/api/dvice/count_pc.php",
     method: "post",
     data: function (d) {
       d.dvice_id = "monitor";
@@ -97,7 +97,7 @@ var monitor_table = $("#monitor_table").DataTable({
 var printer_table = $("#printer_table").DataTable({
   bProcessing: true,
   ajax: {
-    url: "/it2/api/dvice/count_pc.php",
+    url: "/build/api/dvice/count_pc.php",
     method: "post",
     data: function (d) {
       d.dvice_id = "printer";
@@ -145,7 +145,7 @@ var printer_table = $("#printer_table").DataTable({
 var pos_table = $("#pos_table").DataTable({
   bProcessing: true,
   ajax: {
-    url: "/it2/api/dvice/count_pc.php",
+    url: "/build/api/dvice/count_pc.php",
     method: "post",
     data: function (d) {
       d.dvice_id = "pos";

@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(!$_SESSION){
-    header('location:/it2/views/login.php');
+if (!$_SESSION) {
+    header('location:/build/views/login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -101,8 +101,8 @@ if(!$_SESSION){
             background-color: rgba(172 153 7 /8%);
         }
 
-        .card-title {
-           color: #8f4545;
+        .card {
+            height: unset;
         }
     </style>
 
@@ -119,13 +119,13 @@ if(!$_SESSION){
     <!-- [ Pre-loader ] End -->
     <!-- [ navigation menu ] start -->
     <div class="navbar-collapsed pcoded-navbar" id="pcoded-navba">
-        <?php include dirname( __FILE__ ).'..\..\layout\aside\nav.php' ;?>
+        <?php include dirname(__FILE__) . '..\..\layout\aside\nav.php'; ?>
     </div>
     <header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
-        <?php include '..\layout\header\m-hader.html';?>
+        <?php include '..\layout\header\m-hader.html'; ?>
         <ul class="navbar-nav ml-auto">
             <li>
-                <?php include '../layout/header/user.php';?>
+                <?php include '../layout/header/user.php'; ?>
             </li>
             <li>
             </li>
@@ -134,71 +134,27 @@ if(!$_SESSION){
     </header>
 
     <!-- [ Header ] end -->
-
-
-
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-content">
-            <?php if($_SESSION['all_dvices']){ ?>
-            <div class="mt-5 mb-3">
-                <span class="p-3 badge btn-warning text-dark fs-5">احصائيات</span>
-            </div>
-            <!-- [ Main Content ] start -->
-            <div id="main">
-                <div id="pills-tabContent">
-                    <?php include dirname( __FILE__ ).'..\..\layout\main\page-body\count-dvices.php' ;?>
-                </div>
+            <?php if ($_SESSION['all_dvices']) { ?>
                 <div class="mt-5 mb-3">
-                    <span class="p-3 badge btn-warning text-dark fs-5">متابعه القاعده</span>
+                    <span class="p-3 badge btn-warning text-dark fs-5">احصائيات</span>
                 </div>
-                <div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">اجماليات اجهزه المكاتب</h4>
-        <p class="card-text">صفحه اجماليات اجهزه الحاسب و الشاشات و الطابعات و ماكينات نقاط البيع و اجهز بوستال قرين كل وحده بريديه مما يساعد فى اتخاذ القرارات</p>
-        <a href="..\views\dvice_office_report.php" target="_blank" class="btn btn-success">اضغط هنا</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">توافق اجهزه بوستال</h4>
-        <p class="card-text">صفحه توافق اجهزه بوستال تساعد  فى معرفه احتياجات المنافذ البريديه من قوارئ باركود و طابعات باركود و موازين اليكترونيه و شاشات عرض العملاء او وجود عدد زائد من احد الانواع</p>
-        <a href="..\api\dvice\postal_dvices_comptaible.php" target="_blank" class="btn btn-success">اضغط هنا</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">توافق اجهزه الحاسب مع الشاشات</h4>
-        <p class="card-text">صفحه توافق اجهزه الحاسب مع الشاشات تساعد فى معرفه الوحدات البريديه التى تزيد فيها عدد الشاشات عن عدد اجهزه الحاسب الالى او العكس</p>
-        <a href="..\api\dvice\pcs_monitors_comptaible.php" target="_blank" class="btn btn-success">اضغط هنا</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">سريالات الاجهزه المكرره</h4>
-        <p class="card-text">صفحه سريالات الاجهزه المكرره تساعد فى ضمان عدم تكرار سريالات الاجهزه</p>
-        <a href="..\api\dvice\repeat_sn_office.php" target="_blank"  class="btn btn-success">اضغط هنا</a>
-      </div>
-    </div>
-  </div>
-</div>
-            </div>
+                <!-- [ Main Content ] start -->
+                <div id="main">
+                    <div id="pills-tabContent">
+                        <?php include dirname(__FILE__) . '..\..\layout\main\page-body\count-dvices.php'; ?>
+                    </div>
+                </div>
             <?php } ?>
             <!-- [ Main Content ] end -->
         </div>
         <!-- start user exit  modal -->
-        <?php include '../component/modals/user_exit.php'?>
+        <?php include '../component/modals/user_exit.php' ?>
         <!-- end user exit modal -->
         <!-- start user password  modal -->
-        <?php include '../component/modals/user_password_change.php'?>
+        <?php include '../component/modals/user_password_change.php' ?>
         <!-- end user password modal -->
     </div>
 
@@ -214,8 +170,8 @@ if(!$_SESSION){
     <script src="../assets/DataTables/Buttons-2.2.3/js/buttons.print.js"></script>
     <script src="../js/log/change_password.js"></script>
     <?php
-if($_SESSION['all_dvices']){?>
-    <script src="../data_tables/index.js"></script>
+    if ($_SESSION['all_dvices']) { ?>
+        <script src="../data_tables/index.js"></script>
     <?php } ?>
     <script>
         var count_office_type = "";
@@ -243,14 +199,16 @@ if($_SESSION['all_dvices']){?>
                 } else {
                     $.each(data, function (key, val) {
                         count_office_type += `
-                <div class='col-md-12 col-xl-2 text-center'>
+                <div class='col-md-12 col-xl-2 text-center mb-3'>
             <div class="card flat-card widget-primary-card">
                 <div class="row-table">
                     <div class="card-body" style="background-color: #17A689;">
-                        <h4>${val['count(office_type)']}</h4>
+                        <h4>${val}</h4>
                     </div>
                     <div class="col-sm-9">
-                        <a href="../api/office/count_office.php?office_type=${val['office_type']}" target="_blank" class="text-decoration-none" style="color:unset"><h4>${val['office_type']}</h4></a>
+                        <a href="../api/office/count_office.php?office_type=${key}" target="_blank" class="text-decoration-none" style="color:unset">
+                        <h4>${key}</h4>
+                        </a>
                     </div>
                 </div>
             </div>

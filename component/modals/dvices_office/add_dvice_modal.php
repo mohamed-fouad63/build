@@ -8,9 +8,8 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text  col-sm-2">صنف الجهاز </span>
                     <select class="form-select text-end me-3" id="id_dvice_type" required>
-                            <option></option>
-                        </select>
-
+                        <option></option>
+                    </select>
                     <span class="input-group-text  col-sm-2">موديل الجهاز</span>
                     <select class="form-select " id="select_dvice_name">
                     </select>
@@ -27,10 +26,11 @@
             <div class="modal-footer">
                 <div class="form-check flex-grow-1">
                     <label class="form-check-label" for="flexSwitchCheckDefault">ابقاء النافذه مفتوحه</label>
-                    <input class="form-check-input" type="checkbox" value="" id="chk_btn" onclick="dismiss_modal_check('chk_btn','add_dvice_btn')">
+                    <input class="form-check-input" type="checkbox" value="" id="chk_btn"
+                        onclick="dismiss_modal_check('chk_btn','add_dvice_btn')">
                 </div>
                 <button type="button" class="btn btn-teal" data-bs-dismiss="modal">الغاء</button>
-                <button type="button" class="btn btn-success disabled" data-bs-dismiss="modal" id="add_dvice_btn">اضافه</button>
+                <button type="button" class="btn btn-success disabled" id="add_dvice_btn">اضافه</button>
             </div>
         </div>
     </div>
