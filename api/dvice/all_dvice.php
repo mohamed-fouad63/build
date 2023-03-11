@@ -1,7 +1,7 @@
 <?php
 session_start();
-$db = $_SESSION['db'];
 if ($_SESSION['all_dvices'] and !empty($_POST)) {
+    $db = $_SESSION['db'];
     include_once "../../conn/conn.php";
     $query_all_in_it = "
         SELECT dvice.num,dvice.office_name,dvice.dvice_name,dvice.dvice_type,dvice.sn,dvice.ip,all1.floor_name,all1.building_name FROM dvice

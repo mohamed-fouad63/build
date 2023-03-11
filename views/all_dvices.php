@@ -8,7 +8,7 @@ session_login_auth('all_dvices');
 <head>
     <meta charset=utf-8>
     <title>اجهزه كل المكاتب</title>
-    <link rel="icon" href="../../../it2/assets/images/it1.svg" type="image/x-icon" />
+    <link rel="icon" href="../../../build/assets/images/build.svg" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/css/plugins/bootstrap5/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="../assets/fonts/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/style2.css">
@@ -121,8 +121,8 @@ session_login_auth('all_dvices');
     <script src="../assets/js/plugins/jquery.min.js"></script>
     <script src="../assets/js/plugins/bootstrap5/popper.min.js"></script>
     <script src="../assets/js/plugins/bootstrap5/bootstrap.min.js"></script>
-    <script src="../assets/js/pcoded.min2.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../assets/js/pcoded.min2.js"></script>
     <script src="../assets/DataTables/jquery.dataTables.min.js"></script>
     <script src="../assets/DataTables/Buttons-2.2.3/js/dataTables.buttons.min.js"></script>
     <script src="../assets/DataTables/Buttons-2.2.3/js/buttons.print.min.js"></script>

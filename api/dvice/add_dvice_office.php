@@ -1,7 +1,6 @@
 <?php
 session_start();
 // $db = $_SESSION['db'];
-$db = $_SESSION['db'];
 if (!empty($_POST)) {
     $office_name = filter_var($_POST['office_name'], FILTER_SANITIZE_STRING);
     $dvice_name = filter_var($_POST['dvice_name'], FILTER_SANITIZE_STRING);
@@ -12,6 +11,7 @@ if (!empty($_POST)) {
     $floor_id = filter_var($_POST['floor_id'], FILTER_SANITIZE_STRING);
     $office_id = filter_var($_POST['office_id'], FILTER_SANITIZE_STRING);
 
+    $db = $_SESSION['db'];
     if ($_SESSION['db']) {
         include_once "../../conn/conn.php";
 

@@ -1,7 +1,6 @@
 <?php
-include("../../middleware/middleware_session.php");
-// session_login_auth(!$_SESSION['all_dvices']);
-if (!empty($_GET['office_type'])) {
+session_start();
+if (!empty($_GET['office_type']) && $_SESSION['db']) {
     $db = $_SESSION['db'];
     $office_type = $_GET['office_type'];
     switch ($office_type) {

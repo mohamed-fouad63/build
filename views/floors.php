@@ -10,7 +10,7 @@ session_login_auth('build');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="../assets/images/it1.svg" alt="" class="logo" type="image/x-icon">
+    <link rel="icon" href="../assets/images/build.svg" alt="" class="logo" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/plugins/bootstrap5/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="../assets/fonts/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/plugins/perfect-scrollbar.css">
@@ -122,12 +122,12 @@ session_login_auth('build');
                         <?php
                         if ($_SESSION['role'] == 'admin') {
                             ?>
-                            <button type="button" class="btn btn-outline-success" data-index_id="${val['id']}" data-building_id="${val['building_id']}" onclick='user_details_modal(${key})' title="تعديل اسم الدور او ترتيبه">
-                            <i class="bi bi-pencil-fill"></i>
-                            </button>
-                            <button type="button" class="btn btn-outline-danger" onclick='del_floor_modal(${key})' title=" حذف الدور">
-                            <i class="bi bi-trash"></i>
-                            </button>
+                                <button type="button" class="btn btn-outline-success" data-index_id="${val['id']}" data-building_id="${val['building_id']}" onclick='user_details_modal(${key})' title="تعديل اسم الدور او ترتيبه">
+                                <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-danger" onclick='del_floor_modal(${key})' title=" حذف الدور">
+                                <i class="bi bi-trash"></i>
+                                </button>
                         <?php } ?>
                         </div>  
   <div class="card-body">

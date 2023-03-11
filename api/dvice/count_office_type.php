@@ -1,8 +1,8 @@
 <?php
 session_start();
 // $db = $_SESSION['db'];
-$db = $_SESSION['db'];
-if ($_SESSION['db']) {
+if ($_SESSION['db'] && !empty($_POST)) {
+    $db = $_SESSION['db'];
     include_once "../../conn/conn.php";
     $office_type = [
         ['table' => 'building_names', 'office_type' => 'مبنى', 'col_name' => 'building_name'],

@@ -1,7 +1,6 @@
 <?php
-include("../../middleware/middleware_session.php");
-// session_login_auth(!$_SESSION['all_dvices']);
-if (!empty($_GET['dvice_name']) && !empty($_GET['dvice_type']) && !empty($_GET['ip'])) {
+session_start();
+if (!empty($_GET['dvice_name']) && !empty($_GET['dvice_type']) && !empty($_GET['ip']) && $_SESSION['db']) {
     $db = $_SESSION['db'];
     include_once "../../conn/conn.php";
     $dvice_name = $_GET['dvice_name'];
@@ -40,8 +39,6 @@ dvice_name = '$dvice_name'");
                             ";
                         }
                         ?>
-
-                        <th>موقفه</th>
                     </tr>
                     <?php
                     while ($row = mysqli_fetch_assoc($query_dvice_name)) {
@@ -67,9 +64,6 @@ dvice_name = '$dvice_name'");
                             ";
                             }
                             ?>
-                            <td>
-                                <?php echo $note; ?>
-                            </td>
                         </tr>
                     <?php } ?>
                 </table>

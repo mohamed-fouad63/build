@@ -12,6 +12,7 @@ $("#EditModalPC .btn-success").click(function () {
     data: formData,
     success: function (result) {
       result = result.replace(/^\s+|\s+$/gm, "");
+      console.log(result)
       if (result == "done") {
         datatable_ajax_reload();
         $("#EditModalPC").modal("hide");

@@ -10,7 +10,7 @@ session_login_auth('build');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="../assets/images/it1.svg" alt="" class="logo" type="image/x-icon">
+    <link rel="icon" href="../assets/images/build.svg" alt="" class="logo" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/plugins/bootstrap5/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="../assets/fonts/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/plugins/perfect-scrollbar.css">
@@ -88,8 +88,8 @@ session_login_auth('build');
     <script src="../assets/js/plugins/jquery.min.js"></script>
     <script src="../assets/js/plugins/bootstrap5/popper.min.js"></script>
     <script src="../assets/js/plugins/bootstrap5/bootstrap.min.js"></script>
-    <script src="../assets/js/pcoded.min2.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../assets/js/pcoded.min2.js"></script>
     <script src="../js/log/change_password.js"></script>
     <script src="../js/building_group/add_building.js"></script>
     <script src="../js/building_group/edit_building.js"></script>
@@ -111,12 +111,12 @@ session_login_auth('build');
                         <?php
                         if ($_SESSION['role'] == 'admin') {
                             ?>
-                                <button type="button" class="btn btn-outline-success" onclick='user_details_modal(${key})' title="تعديل اسم المبنى">
-                                <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-danger" onclick='del_building_modal(${key})' title=" حذف المبنى">
-                                <i class="bi bi-trash"></i>
-                                </button>
+                                        <button type="button" class="btn btn-outline-success" onclick='user_details_modal(${key})' title="تعديل اسم المبنى">
+                                        <i class="bi bi-pencil-fill"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-danger" onclick='del_building_modal(${key})' title=" حذف المبنى">
+                                        <i class="bi bi-trash"></i>
+                                        </button>
 
                         <?php } ?>
                         </div>    

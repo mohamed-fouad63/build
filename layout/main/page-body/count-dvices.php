@@ -4,7 +4,8 @@
     <div class="row dvices_count">
         <div class="col-md-3">
             <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=pc" target="_blank" class="text-decoration-none fs-1">
+                <a href="../../build/api/dvice/count_dvices.php?id=pc" target="_blank"
+                    class="text-decoration-none fs-1">
                     <div class="card-header pc">
                         <span class="fs-1" id="status"></span>
                         <i class="bi bi-pc me-2 fs-1"></i>
@@ -25,7 +26,7 @@
         </div>
         <div class="col-md-3">
             <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=monitor" target="_blank"
+                <a href="../../build/api/dvice/count_dvices.php?id=monitor" target="_blank"
                     class="text-decoration-none fs-1">
                     <div class="card-header monitor">
                         <span class="fs-1" id="monitors_count"></span>
@@ -43,7 +44,7 @@
         </div>
         <div class="col-md-3">
             <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=printer" target="_blank"
+                <a href="../../build/api/dvice/count_dvices.php?id=printer" target="_blank"
                     class="text-decoration-none fs-1">
                     <div class="card-header printer">
                         <span class="fs-1" id="printers_count"></span>
@@ -61,7 +62,7 @@
         </div>
         <div class="col-md-3">
             <div class="card">
-                <a href="../../it2/api/dvice/count_dvices.php?id=scanner" target="_blank"
+                <a href="../../build/api/dvice/count_dvices.php?id=scanner" target="_blank"
                     class="text-decoration-none fs-1">
                     <div class="card-header scanner">
                         <span class="fs-1" id="barcode_scanner_count"></span>

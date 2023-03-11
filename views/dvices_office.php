@@ -8,7 +8,7 @@ session_login_auth('dvice_office');
 <head>
     <meta charset=utf-8>
     <title>اجهزه مكتب </title>
-    <link rel="icon" href="../../../it2/assets/images/it1.svg" type="image/x-icon" />
+    <link rel="icon" href="../../../build/assets/images/build.svg" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/css/plugins/bootstrap5/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="../assets/fonts/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/plugins/easy-autocomplete.css">

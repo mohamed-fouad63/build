@@ -8,7 +8,7 @@ session_login_auth('users');
 <head>
     <meta charset=utf-8>
     <title>صلاحيات المستخدمين</title>
-    <link rel="icon" href="../assets/images/it1.svg" type="image/x-icon" />
+    <link rel="icon" href="../assets/images/build.svg" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/css/plugins/bootstrap5/bootstrap-select.min.css">
     <link rel="stylesheet" href="../assets/css/plugins/bootstrap5/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="../assets/fonts/node_modules/bootstrap-icons/font/bootstrap-icons.css">
