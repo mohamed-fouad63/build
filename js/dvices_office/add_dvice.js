@@ -17,11 +17,24 @@ $.getJSON("../api/dvice/id_dvice_type.php", function (data) {
 
 $("#id_dvice_type").change(function () {
   id_dvice_type = $(this).val();
+  switch (id_dvice_type) {
+    case 'pc':
+    case 'printer':
+    case 'network':
+      $('#label_divce_ip').css('visibility', 'visible');
+      $('#divce_ip').css('visibility', 'visible');
+      break;
+
+    default:
+      $('#label_divce_ip').css('visibility', 'hidden');
+      $('#divce_ip').css('visibility', 'hidden');
+      break;
+  }
   var options_select_dvice_name = "<option></option>";
   $.getJSON(
     "../api/dvice/dvice_name_dvice_type.php?id_dvice_type=" +
-      id_dvice_type +
-      "",
+    id_dvice_type +
+    "",
     function (data) {
       $.each(data, function (key, val) {
         options_select_dvice_name +=
@@ -45,8 +58,8 @@ $("#select_dvice_name").change(function () {
   select_dvice_name = $(this).val();
   $.getJSON(
     "../api/dvice/dvice_type_dvice_type.php?dvice_name=" +
-      select_dvice_name +
-      "",
+    select_dvice_name +
+    "",
     function (data) {
       $.each(data, function (key, val) {
         $("#divce_type").val(val.dvice_type);
@@ -72,6 +85,7 @@ $("#add_dvice_btn").click(function () {
     office_id: office_id,
     dvice_name: $("#select_dvice_name").val(),
     dvice_sn: $("#divce_sn_add").val(),
+    divce_ip: $("#divce_ip").val(),
   };
   console.log(formData);
   $.ajax({

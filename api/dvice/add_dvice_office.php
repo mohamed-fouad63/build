@@ -10,6 +10,7 @@ if (!empty($_POST)) {
     $floor_name = filter_var($_POST['floor_name'], FILTER_SANITIZE_STRING);
     $floor_id = filter_var($_POST['floor_id'], FILTER_SANITIZE_STRING);
     $office_id = filter_var($_POST['office_id'], FILTER_SANITIZE_STRING);
+    $divce_ip = filter_var($_POST['divce_ip'], FILTER_SANITIZE_STRING);
 
     $db = $_SESSION['db'];
     if ($_SESSION['db']) {
@@ -20,9 +21,9 @@ if (!empty($_POST)) {
         $row_count = mysqli_num_rows($result1);
         $sql_insert = "
             INSERT INTO dvice
-            (id,office_id,office_name,sn,code_inventory,dvice_type,dvice_name,floor_id,floor_name,building_id,building_name)
+            (id,office_id,office_name,sn,ip,code_inventory,dvice_type,dvice_name,floor_id,floor_name,building_id,building_name)
             SELECT
-            id,'$office_id','$office_name','$dvice_sn',code_inventory,dvice_type,'$dvice_name','$floor_id','$floor_name','$building_id','$building_name' FROM dvice_type
+            id,'$office_id','$office_name','$dvice_sn','$divce_ip',code_inventory,dvice_type,'$dvice_name','$floor_id','$floor_name','$building_id','$building_name' FROM dvice_type
             WHERE dvice_name_new = '$dvice_name' ;";
         if (!empty($office_name) || !empty($dvice_name)) {
             if ($row_count < 1) {

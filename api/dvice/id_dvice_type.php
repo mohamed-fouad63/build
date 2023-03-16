@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['add_dvice'] && !empty($_POST)) {
+if ($_SESSION['add_dvice']) {
   $db = $_SESSION['db'];
   include_once "../../conn/conn.php";
   $query_all_in_it = "SELECT id FROM dvice_type GROUP BY id HAVING COUNT(*) >= 1 ";
