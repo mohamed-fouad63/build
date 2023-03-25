@@ -96,6 +96,11 @@ if (!$_SESSION) {
         form.card {
             background-color: #c7ebd0;
         }
+
+        .col-md-2-5 {
+            flex: 0 0 auto;
+            width: 20%;
+        }
     </style>
 
 
@@ -216,7 +221,26 @@ if (!$_SESSION) {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="card mt-4">
+                                        <a href="../../build/api/dvice/count_dvices.php?id=barcode_printer" target="_blank"
+                                            class="text-decoration-none fs-1">
+                                            <div class="card-header scanner">
+                                                <span class="fs-1" id="barcode_scanner_count"></span>
+                                                <i class="bi bi-upc-scan me-2 fs-1"></i>
+                                                <span class="fs-2">طابعه باركود</span>
+                                            </div>
+                                        </a>
+                                        <div class="scanner_list">
+                                            <div class="">
+                                                <table class="table table-hover" id="barcode_printer_table">
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
+
                             </div>
                             <div class="row mt-4" class="dvices_type" id="dvices_type">
 

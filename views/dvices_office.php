@@ -238,6 +238,7 @@ session_login_auth('dvice_office');
         }
         if ($_SESSION['add_dvice'] == 1) {
             include '../component/modals/dvices_office/add_dvice_modal.php';
+            include '../component/modals/dvices_office/move_to_modal.php';
         }
         include '../component/modals/user_exit.php';
         include '../component/modals/user_password_change.php';
@@ -268,6 +269,7 @@ session_login_auth('dvice_office');
     if ($_SESSION['add_dvice'] == 1) { ?>
         <script src="../js/global/dismiss_modal_check.js"></script>
         <script src="../js/dvices_office/add_dvice.js"></script>
+        <script src="../js/dvices_office/move_to.js"></script>
     <?php } ?>
 </body>
 

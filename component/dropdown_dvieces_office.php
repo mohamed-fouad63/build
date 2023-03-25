@@ -19,6 +19,12 @@ if ($_SESSION['edit'] == 1) {
                         <label>حذف الجهاز </label>
                     </a>
                 </li>
+                <li class="d-flex align-items-center">
+                    <i class="bi bi-arrows-move"></i>
+                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#Move_To_Modal">
+                        <label>نقل الجهاز </label>
+                    </a>
+                </li>
             <?php } ?>
         </ul>
     </div>

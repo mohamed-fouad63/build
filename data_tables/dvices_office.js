@@ -4,7 +4,7 @@ var details_offfice = $("#details_offfice").DataTable({
         url: "../api/office/details_offfice.php",
         method: "post",
         data: {
-            input_search: function() {
+            input_search: function () {
                 var input_search = $("#input_search").data("office_id");
                 return input_search;
             },
@@ -20,7 +20,7 @@ var details_offfice = $("#details_offfice").DataTable({
         infoEmpty: "0",
         info: "_TOTAL_",
     },
-    rowCallback: function(row, data) {
+    rowCallback: function (row, data) {
         $("#details_offfice thead tr:first-of-type th").text(
             details_offfice.row().data().office_name
         );
@@ -31,7 +31,7 @@ var details_offfice = $("#details_offfice").DataTable({
         floor_id = details_offfice.row().data().floor_id;
         office_id = details_offfice.row().data().id;
     },
-    initComplete: function() {},
+    initComplete: function () { },
 });
 /* end data table office details */
 
@@ -41,7 +41,7 @@ var dvice_office_pc = $("#dvice_office_pc").DataTable({
         url: "../api/dvice/dvice_office_pc.php",
         method: "post",
         data: {
-            input_search: function() {
+            input_search: function () {
                 var input_search = $("#input_search").data("office_id");
                 return input_search;
             },
@@ -56,7 +56,7 @@ var dvice_office_pc = $("#dvice_office_pc").DataTable({
         { data: "pc_doman_name" },
         {
             data: "",
-            render: function(data, type, row) {
+            render: function (data, type, row) {
                 return `
               ${Settings.dropdown_dvieces_office_url}
                 `;
@@ -70,10 +70,10 @@ var dvice_office_pc = $("#dvice_office_pc").DataTable({
         infoEmpty: "0",
         info: "_TOTAL_",
     },
-    rowCallback: function(row, data) {},
-    initComplete: function() {
+    rowCallback: function (row, data) { },
+    initComplete: function () {
         $("#pc_office_count").append($("#dvice_office_pc_info"));
-        $("#dvice_office_pc tbody").on("click", ".dropdown-item", function() {
+        $("#dvice_office_pc tbody").on("click", ".dropdown-item", function () {
             $("#ip_domain").css("display", "flex");
             $("#dvice_ip_label").css("visibility", "visible");
             $("#dvice_ip_label").css("display", "flex");
@@ -94,6 +94,23 @@ var dvice_office_pc = $("#dvice_office_pc").DataTable({
             $(".dvice_num").val(data_pc.num);
             $(".dvice_id").val(data_pc.id);
             $(".dvice_type").val(data_pc.dvice_type);
+            building_name = data_pc.building_name;
+            console.log(building_name);
+            var options_select_office_name_to = "<option></option>";
+            $.post("../api/office/selesct_office_name.php", { building_name: building_name }, function (data) {
+                $.each(data, function (key, val) {
+                    options_select_office_name_to +=
+                        "<option data-floor_id='" + val.floor_id +
+                        "' data-floor_name='" + val.floor_name +
+                        "' data-building_id='" + val.building_id +
+                        "' data-building_name='" + val.building_name +
+                        "' data-office_id='" + val.id +
+                        "' value='" + val.office_name + "'>" +
+                        val.office_name + " " + val.floor_name
+                    "</option>";
+                });
+                $("#office_name_to").html(options_select_office_name_to);
+            }, 'json');
             return (dvice_num = data_pc.num);
         });
     },
@@ -106,7 +123,7 @@ var dvice_office_monitor = $("#dvice_office_monitor").DataTable({
         url: "../api/dvice/dvice_office_monitor.php",
         method: "post",
         data: {
-            input_search: function() {
+            input_search: function () {
                 var input_search = $("#input_search").data("office_id");
                 return input_search;
             },
@@ -119,7 +136,7 @@ var dvice_office_monitor = $("#dvice_office_monitor").DataTable({
         { data: "sn" },
         {
             data: "",
-            render: function(data, type, row) {
+            render: function (data, type, row) {
                 return `
               ${Settings.dropdown_dvieces_office_url}
                 `;
@@ -133,10 +150,10 @@ var dvice_office_monitor = $("#dvice_office_monitor").DataTable({
         infoEmpty: "0",
         info: "_TOTAL_",
     },
-    rowCallback: function(row, data) {},
-    initComplete: function() {
+    rowCallback: function (row, data) { },
+    initComplete: function () {
         $("#monitor_office_count").append($("#dvice_office_monitor_info"));
-        $("#dvice_office_monitor tbody").on("click", ".dropdown-item", function() {
+        $("#dvice_office_monitor tbody").on("click", ".dropdown-item", function () {
             $("#ip_domain").css("display", "none");
             $("#dvice_ip_label").css("visibility", "hidden");
             $("#dvice_ip").css("visibility", "hidden");
@@ -160,7 +177,7 @@ var dvice_office_printer = $("#dvice_office_printer").DataTable({
         url: "../api/dvice/dvice_office_printer.php",
         method: "post",
         data: {
-            input_search: function() {
+            input_search: function () {
                 var input_search = $("#input_search").data("office_id");
                 return input_search;
             },
@@ -174,7 +191,7 @@ var dvice_office_printer = $("#dvice_office_printer").DataTable({
         { data: "ip" },
         {
             data: "",
-            render: function(data, type, row) {
+            render: function (data, type, row) {
                 return `
               ${Settings.dropdown_dvieces_office_url}
                 `;
@@ -188,10 +205,10 @@ var dvice_office_printer = $("#dvice_office_printer").DataTable({
         infoEmpty: "0",
         info: "_TOTAL_",
     },
-    rowCallback: function(row, data) {},
-    initComplete: function() {
+    rowCallback: function (row, data) { },
+    initComplete: function () {
         $("#printer_office_count").append($("#dvice_office_printer_info"));
-        $("#dvice_office_printer tbody").on("click", ".dropdown-item", function() {
+        $("#dvice_office_printer tbody").on("click", ".dropdown-item", function () {
             $("#dvice_ip_label").css("visibility", "visible");
             $("#dvice_ip").css("visibility", "visible");
             $("#ip_domain").css("display", "flex");
@@ -216,7 +233,7 @@ var dvice_office_network = $("#dvice_office_network").DataTable({
         url: "../api/dvice/dvice_office_network.php",
         method: "post",
         data: {
-            input_search: function() {
+            input_search: function () {
                 var input_search = $("#input_search").data("office_id");
                 return input_search;
             },
@@ -230,7 +247,7 @@ var dvice_office_network = $("#dvice_office_network").DataTable({
         { data: "ip" },
         {
             data: "",
-            render: function(data, type, row) {
+            render: function (data, type, row) {
                 return `
               ${Settings.dropdown_dvieces_office_url}
                 `;
@@ -244,10 +261,10 @@ var dvice_office_network = $("#dvice_office_network").DataTable({
         infoEmpty: "0",
         info: "_TOTAL_",
     },
-    rowCallback: function(row, data) {},
-    initComplete: function() {
+    rowCallback: function (row, data) { },
+    initComplete: function () {
         $("#network_office_count").append($("#dvice_office_network_info"));
-        $("#dvice_office_network tbody").on("click", ".dropdown-item", function() {
+        $("#dvice_office_network tbody").on("click", ".dropdown-item", function () {
             $("#dvice_ip_label").css("visibility", "visible");
             $("#dvice_ip").css("visibility", "visible");
             $("#pc_domian_name_label").css("visibility", "hidden");
@@ -273,7 +290,7 @@ var dvice_office_postal = $("#dvice_office_postal").DataTable({
         url: "../api/dvice/dvice_office_postal.php",
         method: "post",
         data: {
-            input_search: function() {
+            input_search: function () {
                 var input_search = $("#input_search").data("office_id");
                 return input_search;
             },
@@ -286,7 +303,7 @@ var dvice_office_postal = $("#dvice_office_postal").DataTable({
         { data: "sn" },
         {
             data: "",
-            render: function(data, type, row) {
+            render: function (data, type, row) {
                 return `
               ${Settings.dropdown_dvieces_office_url}
                 `;
@@ -300,10 +317,10 @@ var dvice_office_postal = $("#dvice_office_postal").DataTable({
         infoEmpty: "0",
         info: "_TOTAL_",
     },
-    rowCallback: function(row, data) {},
-    initComplete: function() {
+    rowCallback: function (row, data) { },
+    initComplete: function () {
         $("#postal_office_count").append($("#dvice_office_postal_info"));
-        $("#dvice_office_postal tbody").on("click", ".dropdown-item", function() {
+        $("#dvice_office_postal tbody").on("click", ".dropdown-item", function () {
             $("#dvice_ip_label").css("visibility", "visible");
             $("#dvice_ip").css("visibility", "visible");
             $("#pc_domian_name_label").css("visibility", "hidden");
@@ -328,7 +345,7 @@ var dvice_office_other = $("#dvice_office_other").DataTable({
         url: "../api/dvice/dvice_office_other.php",
         method: "post",
         data: {
-            input_search: function() {
+            input_search: function () {
                 var input_search = $("#input_search").data("office_id");
                 return input_search;
             },
@@ -341,7 +358,7 @@ var dvice_office_other = $("#dvice_office_other").DataTable({
         { data: "sn" },
         {
             data: "",
-            render: function(data, type, row) {
+            render: function (data, type, row) {
                 return `
               ${Settings.dropdown_dvieces_office_url}
                 `;
@@ -355,11 +372,11 @@ var dvice_office_other = $("#dvice_office_other").DataTable({
         infoEmpty: "0",
         info: "_TOTAL_",
     },
-    rowCallback: function(row, data) {},
-    fnDrawCallback: function() {},
-    initComplete: function(settings, json) {
+    rowCallback: function (row, data) { },
+    fnDrawCallback: function () { },
+    initComplete: function (settings, json) {
         $("#other_office_count").append($("#dvice_office_other_info"));
-        $("#dvice_office_other tbody").on("click", ".dropdown-item", function() {
+        $("#dvice_office_other tbody").on("click", ".dropdown-item", function () {
             $("#dvice_ip_label").css("visibility", "hidden");
             $("#dvice_ip").css("visibility", "hidden");
             $("#pc_domian_name_label").css("visibility", "hidden");
@@ -378,42 +395,42 @@ var dvice_office_other = $("#dvice_office_other").DataTable({
 });
 /* end data table other  */
 function datatable_ajax_reload() {
-    dvice_office_pc.ajax.reload(function() {
+    dvice_office_pc.ajax.reload(function () {
         // if (!dvice_office_pc.data().count()) {
         //   $("#dvice_office_pc_field").css("display", "none");
         // } else {
         //   $("#dvice_office_pc_field").css("display", "block");
         // }
     });
-    dvice_office_monitor.ajax.reload(function() {
+    dvice_office_monitor.ajax.reload(function () {
         // if (!dvice_office_monitor.data().count()) {
         //   $("#dvice_office_monitor_field").css("display", "none");
         // } else {
         //   $("#dvice_office_monitor_field").css("display", "block");
         // }
     });
-    dvice_office_printer.ajax.reload(function() {
+    dvice_office_printer.ajax.reload(function () {
         // if (!dvice_office_printer.data().count()) {
         //   $("#dvice_office_printer_field").css("display", "none");
         // } else {
         //   $("#dvice_office_printer_field").css("display", "block");
         // }
     });
-    dvice_office_network.ajax.reload(function() {
+    dvice_office_network.ajax.reload(function () {
         // if (!dvice_office_network.data().count()) {
         //   $("#dvice_office_network_field").css("display", "none");
         // } else {
         //   $("#dvice_office_network_field").css("display", "block");
         // }
     });
-    dvice_office_postal.ajax.reload(function() {
+    dvice_office_postal.ajax.reload(function () {
         // if (!dvice_office_postal.data().count()) {
         //   $("#dvice_office_postal_field").css("display", "none");
         // } else {
         //   $("#dvice_office_postal_field").css("display", "block");
         // }
     });
-    dvice_office_other.ajax.reload(function() {
+    dvice_office_other.ajax.reload(function () {
         // if (!dvice_office_other.data().count()) {
         //   $("#dvice_office_other_field").css("display", "none");
         // } else {
