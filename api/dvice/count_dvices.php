@@ -27,7 +27,7 @@ switch ($id) {
             $dvice_type2 = "قارىء باركود";
             $id = "postal";
         break;
-    case 'parcode_printer':
+    case 'barcode_printer':
             $dvice_type = "طابعه الباركود";
             $dvice_type2 = "طابعه باركود";
             $id = "postal";
@@ -41,6 +41,11 @@ switch ($id) {
             $dvice_type = "شاشه العميل";
             $dvice_type2 = "شاشه عرض عملاء";
             $id = "postal";
+        break;
+    case 'paper_scanner':
+            $dvice_type = "ماسح الضوئى العميل";
+            $dvice_type2 = "ماسح ضوئي";
+            $id = "other";
         break;
 }
 $get_ip = "";

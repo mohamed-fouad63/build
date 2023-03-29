@@ -204,7 +204,7 @@ if (!$_SESSION) {
                                         </div>
                                     </div>
                                     <div class="card mt-4">
-                                        <a href="../../build/api/dvice/count_dvices.php?id=barcode_printer" target="_blank"
+                                        <a href="../../build/api/dvice/count_dvices.php?id=paper_scanner" target="_blank"
                                             class="text-decoration-none fs-1">
                                             <div class="card-header printer">
                                                 <span class="fs-1" id="paper_scanner_count"></span>
