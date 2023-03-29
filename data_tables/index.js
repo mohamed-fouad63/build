@@ -3,7 +3,7 @@ var table = $("#pc_table").DataTable({
     ajax: {
         url: "/build/api/dvice/count_pc.php",
         method: "post",
-        data: function(d) {
+        data: function (d) {
             d.dvice_id = "pc";
         },
         dataSrc: "",
@@ -14,7 +14,7 @@ var table = $("#pc_table").DataTable({
         {
             data: "dvice_name",
             className: "px-3 text-end",
-            render: function(data, type, row, meta) {
+            render: function (data, type, row, meta) {
                 return `<a href="../api/dvice/count_dvice.php?dvice_name=${data}&dvice_type=الجهاز&ip=yes" target="_blank" class="text-decoration-none" style="color:unset">${data}</a>`;
             },
         },
@@ -30,10 +30,10 @@ var table = $("#pc_table").DataTable({
     language: {
         emptyTable: "لا يوجد اجهزه مدرجه",
     },
-    drawCallback: function() {},
-    initComplete: function() {
-        $.fn.dataTable.Api.register("sum()", function() {
-            return this.flatten().reduce(function(a, b) {
+    drawCallback: function () { },
+    initComplete: function () {
+        $.fn.dataTable.Api.register("sum()", function () {
+            return this.flatten().reduce(function (a, b) {
                 if (typeof a === "string") {
                     a = a.replace(/[^\d.-]/g, "") * 1;
                 }
@@ -53,7 +53,7 @@ var monitor_table = $("#monitor_table").DataTable({
     ajax: {
         url: "/build/api/dvice/count_pc.php",
         method: "post",
-        data: function(d) {
+        data: function (d) {
             d.dvice_id = "monitor";
         },
         dataSrc: "",
@@ -64,7 +64,7 @@ var monitor_table = $("#monitor_table").DataTable({
         {
             data: "dvice_name",
             className: "px-3 text-end",
-            render: function(data, type, row, meta) {
+            render: function (data, type, row, meta) {
                 return `<a href="../api/dvice/count_dvice.php?dvice_name=${data}&dvice_type=الشاشه&ip=no" target="_blank" class="text-decoration-none" style="color:unset">${data}</a>`;
             },
         },
@@ -80,10 +80,10 @@ var monitor_table = $("#monitor_table").DataTable({
     language: {
         emptyTable: "لا يوجد شاشات مدرجه",
     },
-    drawCallback: function() {},
-    initComplete: function() {
-        $.fn.dataTable.Api.register("sum()", function() {
-            return this.flatten().reduce(function(a, b) {
+    drawCallback: function () { },
+    initComplete: function () {
+        $.fn.dataTable.Api.register("sum()", function () {
+            return this.flatten().reduce(function (a, b) {
                 if (typeof a === "string") {
                     a = a.replace(/[^\d.-]/g, "") * 1;
                 }
@@ -103,7 +103,7 @@ var printer_table = $("#printer_table").DataTable({
     ajax: {
         url: "/build/api/dvice/count_pc.php",
         method: "post",
-        data: function(d) {
+        data: function (d) {
             d.dvice_id = "printer";
         },
         dataSrc: "",
@@ -114,7 +114,7 @@ var printer_table = $("#printer_table").DataTable({
         {
             data: "dvice_name",
             className: "px-3 text-end",
-            render: function(data, type, row, meta) {
+            render: function (data, type, row, meta) {
                 return `<a href="../api/dvice/count_dvice.php?dvice_name=${data}&dvice_type=الطابعه&ip=yes" target="_blank" class="text-decoration-none" style="color:unset">${data}</a>`;
             },
         },
@@ -130,10 +130,10 @@ var printer_table = $("#printer_table").DataTable({
     language: {
         emptyTable: "لا يوجد طابعات مدرجه",
     },
-    drawCallback: function() {},
-    initComplete: function() {
-        $.fn.dataTable.Api.register("sum()", function() {
-            return this.flatten().reduce(function(a, b) {
+    drawCallback: function () { },
+    initComplete: function () {
+        $.fn.dataTable.Api.register("sum()", function () {
+            return this.flatten().reduce(function (a, b) {
                 if (typeof a === "string") {
                     a = a.replace(/[^\d.-]/g, "") * 1;
                 }
@@ -154,7 +154,7 @@ var barcode_scanner_table = $("#barcode_scanner_table").DataTable({
     ajax: {
         url: "/build/api/dvice/count_postal.php",
         method: "post",
-        data: function(d) {
+        data: function (d) {
             d.dvice_type = "قارىء باركود";
         },
         dataSrc: "",
@@ -165,7 +165,7 @@ var barcode_scanner_table = $("#barcode_scanner_table").DataTable({
         {
             data: "dvice_name",
             className: "px-3 text-end",
-            render: function(data, type, row, meta) {
+            render: function (data, type, row, meta) {
                 return `<a href="../api/dvice/count_dvice.php?dvice_name=${data}&dvice_type=قارئ الباركود&ip=no" target="_blank" class="text-decoration-none" style="color:unset">${data}</a>`;
             },
         },
@@ -181,10 +181,10 @@ var barcode_scanner_table = $("#barcode_scanner_table").DataTable({
     language: {
         emptyTable: "لا يوجد قوارئ باركود مدرجه",
     },
-    drawCallback: function() {},
-    initComplete: function() {
-        $.fn.dataTable.Api.register("sum()", function() {
-            return this.flatten().reduce(function(a, b) {
+    drawCallback: function () { },
+    initComplete: function () {
+        $.fn.dataTable.Api.register("sum()", function () {
+            return this.flatten().reduce(function (a, b) {
                 if (typeof a === "string") {
                     a = a.replace(/[^\d.-]/g, "") * 1;
                 }
@@ -204,7 +204,7 @@ var barcode_printer_table = $("#barcode_printer_table").DataTable({
     ajax: {
         url: "/build/api/dvice/count_postal.php",
         method: "post",
-        data: function(d) {
+        data: function (d) {
             d.dvice_type = "طابعه باركود";
         },
         dataSrc: "",
@@ -215,7 +215,7 @@ var barcode_printer_table = $("#barcode_printer_table").DataTable({
         {
             data: "dvice_name",
             className: "px-3 text-end",
-            render: function(data, type, row, meta) {
+            render: function (data, type, row, meta) {
                 return `<a href="../api/dvice/count_dvice.php?dvice_name=${data}&dvice_type=طابعه الباركود&ip=no" target="_blank" class="text-decoration-none" style="color:unset">${data}</a>`;
             },
         },
@@ -231,10 +231,10 @@ var barcode_printer_table = $("#barcode_printer_table").DataTable({
     language: {
         emptyTable: "لا يوجد طابعات باركود مدرجه",
     },
-    drawCallback: function() {},
-    initComplete: function() {
-        $.fn.dataTable.Api.register("sum()", function() {
-            return this.flatten().reduce(function(a, b) {
+    drawCallback: function () { },
+    initComplete: function () {
+        $.fn.dataTable.Api.register("sum()", function () {
+            return this.flatten().reduce(function (a, b) {
                 if (typeof a === "string") {
                     a = a.replace(/[^\d.-]/g, "") * 1;
                 }
@@ -254,7 +254,7 @@ var scale_table = $("#scale_table").DataTable({
     ajax: {
         url: "/build/api/dvice/count_postal.php",
         method: "post",
-        data: function(d) {
+        data: function (d) {
             d.dvice_type = "ميزان الكتروني";
         },
         dataSrc: "",
@@ -265,7 +265,7 @@ var scale_table = $("#scale_table").DataTable({
         {
             data: "dvice_name",
             className: "px-3 text-end",
-            render: function(data, type, row, meta) {
+            render: function (data, type, row, meta) {
                 return `<a href="../api/dvice/count_dvice.php?dvice_name=${data}&dvice_type=الميزان&ip=ىخ" target="_blank" class="text-decoration-none" style="color:unset">${data}</a>`;
             },
         },
@@ -281,10 +281,10 @@ var scale_table = $("#scale_table").DataTable({
     language: {
         emptyTable: "لا يوجد موازين اليكترونيه مدرجه",
     },
-    drawCallback: function() {},
-    initComplete: function() {
-        $.fn.dataTable.Api.register("sum()", function() {
-            return this.flatten().reduce(function(a, b) {
+    drawCallback: function () { },
+    initComplete: function () {
+        $.fn.dataTable.Api.register("sum()", function () {
+            return this.flatten().reduce(function (a, b) {
                 if (typeof a === "string") {
                     a = a.replace(/[^\d.-]/g, "") * 1;
                 }
@@ -299,13 +299,13 @@ var scale_table = $("#scale_table").DataTable({
     },
 });
 
-var scale_table = $("#custom_display_table").DataTable({
+var scale_table = $("#paper_printer_table").DataTable({
     bProcessing: true,
     ajax: {
-        url: "/build/api/dvice/count_postal.php",
+        url: "/build/api/dvice/count_other.php",
         method: "post",
-        data: function(d) {
-            d.dvice_type = "شاشه عرض عملاء";
+        data: function (d) {
+            d.dvice_type = "ماسح ضوئي";
         },
         dataSrc: "",
     },
@@ -315,8 +315,8 @@ var scale_table = $("#custom_display_table").DataTable({
         {
             data: "dvice_name",
             className: "px-3 text-end",
-            render: function(data, type, row, meta) {
-                return `<a href="../api/dvice/count_dvice.php?dvice_name=${data}&dvice_type=شاشه العميل&ip=no" target="_blank" class="text-decoration-none" style="color:unset">${data}</a>`;
+            render: function (data, type, row, meta) {
+                return `<a href="../api/dvice/count_dvice.php?dvice_name=${data}&dvice_type=ماسح ضوئي&ip=no" target="_blank" class="text-decoration-none" style="color:unset">${data}</a>`;
             },
         },
     ],
@@ -329,12 +329,12 @@ var scale_table = $("#custom_display_table").DataTable({
     autoWidth: false,
 
     language: {
-        emptyTable: "لا يوجد شاشات عرض عملاء مدرجه",
+        emptyTable: "لا يوجد ماسحات ضوئيه مدرجه",
     },
-    drawCallback: function() {},
-    initComplete: function() {
-        $.fn.dataTable.Api.register("sum()", function() {
-            return this.flatten().reduce(function(a, b) {
+    drawCallback: function () { },
+    initComplete: function () {
+        $.fn.dataTable.Api.register("sum()", function () {
+            return this.flatten().reduce(function (a, b) {
                 if (typeof a === "string") {
                     a = a.replace(/[^\d.-]/g, "") * 1;
                 }
@@ -345,6 +345,6 @@ var scale_table = $("#custom_display_table").DataTable({
             }, 0);
         });
         var api = this.api();
-        $("#custom_display_table_count").html(api.column(0).data().sum());
+        $("#paper_scanner_count").html(api.column(0).data().sum());
     },
 });

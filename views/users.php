@@ -119,6 +119,7 @@ session_login_auth('users');
                         if (val['add_dvice'] == '1') { checked_add_dvice = 'checked' } else { checked_add_dvice = '' };
                         if (val['edit'] == '1') { checked_edit = 'checked' } else { checked_edit = '' };
                         if (val['all_dvices'] == '1') { checked_all_dvices = 'checked' } else { checked_all_dvices = '' };
+                        if (val['move_to'] == '1') { checked_move_to = 'checked' } else { checked_move_to = '' };
                         var building = "";
                         $.each(val['building'], function (key2, val2) {
                             var myStr = val2['floor_name'].toString();
@@ -176,16 +177,19 @@ session_login_auth('users');
         <p class="card-text"></p>
         <div>
             <input type="checkbox" class="btn-check" data-user_auth="build" data-user_id="${val['id']}" id="build_auth_${val['id']}" ${checked_build} autocomplete="off" onclick="ch(this)">
-            <label class="btn btn-outline-success" title="المبانى" data-build_auth = ${val['build']} for="build_auth_${val['id']}"><i class="bi bi-building"></i></label>
+            <label class="btn btn-outline-success mt-2" title="المبانى" data-build_auth = ${val['build']} for="build_auth_${val['id']}"><i class="bi bi-building"></i></label>
             
             <input type="checkbox" class="btn-check" data-user_auth="dvice_office" data-user_id="${val['id']}" id="dvice_office_auth_${val['id']}" ${checked_dvice_office} autocomplete="off" onclick="ch(this)">
-            <label class="btn btn-outline-success" title="اجهزه مكتب" for="dvice_office_auth_${val['id']}"><i class="bi bi-pc-display"></i></label>
+            <label class="btn btn-outline-success mt-2" title="اجهزه مكتب" for="dvice_office_auth_${val['id']}"><i class="bi bi-pc-display"></i></label>
 
             <input type="checkbox" class="btn-check" data-user_auth="add_dvice" data-user_id="${val['id']}" id="add_dvice_auth_${val['id']}" ${checked_add_dvice} autocomplete="off" onclick="ch(this)">
-            <label class="btn btn-outline-success" title="اضافه الاجهزه" for="add_dvice_auth_${val['id']}"><i class=" bi bi-plus"></i></label>
+            <label class="btn btn-outline-success mt-2" title="اضافه الاجهزه" for="add_dvice_auth_${val['id']}"><i class=" bi bi-plus"></i></label>
             
             <input type="checkbox" class="btn-check" data-user_auth="all_dvices" data-user_id="${val['id']}" id="all_dvice_auth_${val['id']}" ${checked_all_dvices} autocomplete="off" onclick="ch(this)">
-            <label class="btn btn-outline-success" title="سجل الاجهزه" for="all_dvice_auth_${val['id']}"><i class="bi bi-journal-bookmark"></i></label>
+            <label class="btn btn-outline-success mt-2" title="سجل الاجهزه" for="all_dvice_auth_${val['id']}"><i class="bi bi-journal-bookmark"></i></label>
+            
+            <input type="checkbox" class="btn-check" data-user_auth="move_to" data-user_id="${val['id']}" id="move_to${val['id']}" ${checked_move_to} autocomplete="off" onclick="ch(this)">
+            <label class="btn btn-outline-success mt-2" title="نقل الاجهزه" for="move_to${val['id']}"><i class="bi bi-journal-bookmark"></i></label>
 
 
         </div>

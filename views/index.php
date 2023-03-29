@@ -203,6 +203,22 @@ if (!$_SESSION) {
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="card mt-4">
+                                        <a href="../../build/api/dvice/count_dvices.php?id=barcode_printer" target="_blank"
+                                            class="text-decoration-none fs-1">
+                                            <div class="card-header printer">
+                                                <span class="fs-1" id="paper_scanner_count"></span>
+                                                <i class="bi bi-hr me-2 fs-1"></i>
+                                                <span class="fs-2">ماسح ضوئى</span>
+                                            </div>
+                                        </a>
+                                        <div class="scanner_list">
+                                            <div class="">
+                                                <table class="table table-hover" id="paper_printer_table">
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card">
@@ -226,8 +242,8 @@ if (!$_SESSION) {
                                         <a href="../../build/api/dvice/count_dvices.php?id=barcode_printer" target="_blank"
                                             class="text-decoration-none fs-1">
                                             <div class="card-header scanner">
-                                                <span class="fs-1" id="barcode_scanner_count"></span>
-                                                <i class="bi bi-upc-scan me-2 fs-1"></i>
+                                                <span class="fs-1" id="barcode_printer_count"></span>
+                                                <i class="bi bi-upc me-2 fs-1"></i>
                                                 <span class="fs-2">طابعه باركود</span>
                                             </div>
                                         </a>

@@ -40,10 +40,8 @@
                         <i class="bi bi-file-earmark-text-fill"></i>
                         استخراج اذن نقل العهده</a>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-success disabled" id="move_to_btn">نقل كـ</button>
+                        <button type="button" class="btn btn-success" id="move_to_btn">نقل كـ</button>
                         <select class="btn btn-success dropdown-toggle-split" id="move_like">
-                            <option value=""></option>
-                            <option value="مؤقت">مؤقت</option>
                             <option value="عهده">عهده</option>
                         </select>
                     </div>

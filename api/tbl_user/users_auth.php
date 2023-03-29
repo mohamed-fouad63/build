@@ -18,6 +18,7 @@ if ($_SESSION['db']) {
         $row_array['add_dvice'] = $row['add_dvice'];
         $row_array['edit'] = $row['edit'];
         $row_array['all_dvices'] = $row['all_dvices'];
+        $row_array['move_to'] = $row['move_to'];
         $row_array['building'] = array();
         $option_qry = mysqli_query($conn, "SELECT * FROM `floors` WHERE id_it = '$user_id' GROUP BY building_name");
         while ($opt_fet = mysqli_fetch_array($option_qry)) {

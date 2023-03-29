@@ -21,6 +21,7 @@ if (!empty($_POST)) {
             $_SESSION['add_dvice'] = $row['add_dvice'];
             $_SESSION['users'] = $row['users'];
             $_SESSION['all_dvices'] = $row['all_dvices'];
+            $_SESSION['move_to'] = $row['move_to'];
             $_SESSION['db'] = $row['db'];
             echo "done";
         } else {
