@@ -19,15 +19,23 @@ $("#id_dvice_type").change(function () {
   id_dvice_type = $(this).val();
   switch (id_dvice_type) {
     case 'pc':
+      $('#label_divce_ip').css('visibility', 'visible');
+      $('#divce_ip').css('visibility', 'visible');
+      $('#label_pc_doman_name').css('visibility', 'visible');
+      $('#pc_doman_name').css('visibility', 'visible');
+      break;
     case 'printer':
     case 'network':
       $('#label_divce_ip').css('visibility', 'visible');
       $('#divce_ip').css('visibility', 'visible');
+      $('#label_pc_doman_name').css('visibility', 'hidden');
+      $('#pc_doman_name').css('visibility', 'hidden');
       break;
-
     default:
       $('#label_divce_ip').css('visibility', 'hidden');
       $('#divce_ip').css('visibility', 'hidden');
+      $('#label_pc_doman_name').css('visibility', 'hidden');
+      $('#pc_doman_name').css('visibility', 'hidden');
       break;
   }
   var options_select_dvice_name = "<option></option>";
@@ -86,6 +94,7 @@ $("#add_dvice_btn").click(function () {
     dvice_name: $("#select_dvice_name").val(),
     dvice_sn: $("#divce_sn_add").val(),
     divce_ip: $("#divce_ip").val(),
+    pc_doman_name: $("#pc_doman_name").val(),
   };
   console.log(formData);
   $.ajax({
